@@ -27,6 +27,7 @@
 ## オブジェクト ID は SHA-1 ハッシュ
 
 	$ echo 'Hello, World!' > greeting
+
 	$ git hash-object greeting
 	8ab686eafeb1f44702738c8b0f24f2567c36da6d
 
@@ -34,6 +35,7 @@
 ## blob はファイル名に関係なく<br />中身が同じならば同じ ID
 
 	$ echo 'Hello, World!' > greeting2
+
 	$ git hash-object greeting greeting2
 	8ab686eafeb1f44702738c8b0f24f2567c36da6d
 	8ab686eafeb1f44702738c8b0f24f2567c36da6d
@@ -43,14 +45,17 @@
 先頭2桁のディレクトリ名/残り38桁のファイル名
 
 	$ git add greeting
+
 	$ tree .git
 	.git # (色々省略)
 	├── index # インデックス
 	└── objects
 	    └─ 8a
           └── b686eafeb1f44702738c8b0f24f2567c36da6d
+
 	$ git cat-file -t 8ab6
 	blob
+
 	$ git cat-file blob 8ab6
 	Hello, World!
 
@@ -67,7 +72,9 @@
 
 	$ stat -c %y .git/objects/8a/b686eafeb1f44702738c8b0f24f2567c36da6d
 	2012-04-23 09:43:12.000000000 +0900
+
 	$ git add greeting2
+
 	$ stat -c %y .git/objects/8a/b686eafeb1f44702738c8b0f24f2567c36da6d
 	2012-04-23 09:43:12.000000000 +0900
 
@@ -77,6 +84,7 @@
 	$ git rm --cached greeting greeting2
 	rm 'greeting'
 	rm 'greeting2'
+
 	$ git cat-file blob 8ab6
 	Hello, World!
 
@@ -98,16 +106,19 @@
 ## tree はコミット時に作られる
 
 	$ git add greeting
+
 	$ git commit -m 'added my greeting.'
 	[master (root-commit) 77d0330] added my greeting.
 	 1 file changed,  1 insertion(+)
 	   create mode 100644 greeting
+
 	$ git cat-file commit HEAD # 最新コミットの中身をみる
 	tree 2da064c4206cb1e94a20a99c2cd2e19f3d193b74
 	author Youhei Nitta <me@youhei.jp> 1335212302 +0900
 	committer Youhei Nitta <me@youhei.jp> 1335212302 +0900
 	
 	added my greeting.
+
 	$ git cat-file -t 2da0
 	tree
 
@@ -116,12 +127,19 @@
 
 	$ git ls-tree 2da0
 	100644 blob 8ab686eafeb1f44702738c8b0f24f2567c36da6d    greeting
+
 	$ mkdir subdir && mv greeting2
+
 	$ git add subdir
+
 	$ git commit -m 'added sub directory.'
+
 	$ git ls-tree HEAD
 	040000 tree 18e6d2abde0f316ff62e0c8093ca8f569910bf7d    subdir
 	100644 blob 8ab686eafeb1f44702738c8b0f24f2567c36da6d    greeting
+
+	$ git ls-tree 18e6
+	100644 blob 8ab686eafeb1f44702738c8b0f24f2567c36da6d    greeting2
 
 !SLIDE bullet incremental small
 ## tree object についてわかったこと
@@ -133,7 +151,7 @@
 # commit object
 
 !SLIDE
-# ある時点でのスナップショットを示すオブジェクト
+## ある時点でのスナップショットを<br/>示すオブジェクト
 
 !SLIDE commandline incremental small
 ## tree のオブジェクト ID を持つ
@@ -142,11 +160,14 @@
 	parent 77d03308354257e850041fd2d10448fc3a2c4c8b
 	author Youhei Nitta <me@youhei.jp> 1335213434 +0900
 	committer Youhei Nitta <me@youhei.jp> 1335213434 +0900
+	
+	added sub directory.
+
 	$ git ls-tree commit 680e
 	040000 tree 18e6d2abde0f316ff62e0c8093ca8f569910bf7d    subdir
 	100644 blob 8ab686eafeb1f44702738c8b0f24f2567c36da6d    greeting
 
-!SLIDE commandline incremental small
+!SLIDE commandline incremental smaller
 ## 親コミットのオブジェクト ID を持つ(最初のコミットを除く)
 	$ git cat-file commit HEAD
 	tree 680e36390174676a7343ec570f9f22d0632f4444
@@ -155,6 +176,7 @@
 	committer Youhei Nitta <me@youhei.jp> 1335213434 +0900
 	
 	added sub directory.
+
 	$ git cat-file commit 77d0
 	git cat-file commit 77d0
 	tree 2da064c4206cb1e94a20a99c2cd2e19f3d193b74
@@ -174,6 +196,7 @@
 	$ git commit -m 'added another greeting.'
 	$ git checkout master
 	$ git merge fukuoka -m 'merged fukuoka branch.'
+
 	$ git cat-file commit HEAD
 	tree 2fb79db8e8b4ab0f704a056754b434ff2a5435b9
 	parent ae3bc73b86e8ea701496122f4ea7ec5e29cab979

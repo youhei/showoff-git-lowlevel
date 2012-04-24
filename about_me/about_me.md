@@ -19,7 +19,6 @@
 * [blog](http://blog.youhei.jp/)
 * [@youhei](http://twitter.com/youhei)
 * [fb.com/youhei](http://www.facebook.com/youhei)
-* 仲良くしてね(二回目)
 
 !SLIDE bullet incremental small
 

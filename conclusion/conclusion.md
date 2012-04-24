@@ -1,17 +1,17 @@
-!SLIDE bullet
-# 以上が、Git を構成する要素の(ほぼ)全てです
+!SLIDE bullet small
+## 以上が、Git を構成する要素の(ほぼ)全てです
 * リポジトリ
 * オブジェクトデータベース
 * インデックス
 * リファレンス
 
 !SLIDE bullet incremental smaller
-## ここまでの低レベルな観点だけで、下記の高レベルな視点に自分なりの回答ができるはずです
+## ここまでの低レベルな観点だけで、<br/>下記の高レベルな視点に<br/>自分なりの回答ができるはずです
 * いくら分散しても矛盾が発生しない理由
 * ブランチの切り替えが高速な理由
 * reflog で過去のどの時点にも戻れる理由
-* 差分はどこから取り出しいつ計算するか
-* SHA-1 ハッシュが衝突した場合に Git はどう振る舞うかを推測してみる
+* 差分はどこから取り出しいつ計算するか推測
+* SHA-1 ハッシュ値が衝突時に Git はどう振る舞うか推測
 
 !SLIDE smaller
 # おまけ
@@ -32,6 +32,7 @@ SHA-1 の衝突を見るにはどうしたらいいのか、ひとつの例を�
 # 参考資料(掘り下げたい人向け)
 * [Git をボトムアップから理解する](http://keijinsonyaban.blogspot.jp/2011/05/git.html)
 * [ProGit 9. Git の内側](http://progit.org/book/ja/ch9-0.html)
+* [Wrangling Git](http://speakerdeck.com/u/schacon/p/wrangling-git)
 * [入門 Git](http://www.shuwasystem.co.jp/products/7980html/2380.html) 2章 git の基本概念
 * [Git によるバージョン管理](http://ssl.ohmsha.co.jp/cgi-bin/menu.cgi?ISBN=978-4-274-06864-5) 13章 Git リポジトリの中身を見る
 * gitcore-tutorial(7)
