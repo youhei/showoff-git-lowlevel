@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>実践 Git</title>
+
+  <meta name="viewport" content="width=device-width"/>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+  <script type="text/javascript" src="./js/coffee-script.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+      setupPreso(false, './');
+  });
+  </script>
+
+</head>
+
+<body>
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">z, ?</td><td>toggle help (this)</td></tr>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">shift-space, &larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>toggle debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c, t</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">n</td><td>toggle notes</td></tr>
+    <tr><td class="key">p</td><td>run preshow</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="title/title/1">
+<h1>&#x5B9F;&#x8DF5; Git</h1>
+
+<h2>&#x4F4E;&#x30EC;&#x30D9;&#x30EB;&#x306B;&#x77E5;&#x308B; Git</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet small" ref="title/title/2">
+<h1>&#x672C;&#x65E5;&#x306E;&#x30A2;&#x30B8;&#x30A7;&#x30F3;&#x30C0;</h1>
+
+<ul>
+<li>&#x81EA;&#x5DF1;&#x7D39;&#x4ECB;</li>
+<li>&#x30B9;&#x30E9;&#x30A4;&#x30C9;&#x306E;&#x30B9;&#x30B3;&#x30FC;&#x30D7;&#x306B;&#x3064;&#x3044;&#x3066;</li>
+<li>&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;</li>
+<li>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;</li>
+<li>&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;</li>
+<li>&#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;</li>
+<li>&#x307E;&#x3068;&#x3081;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="about_me/about_me/1">
+<h1>&#x81EA;&#x5DF1;&#x7D39;&#x4ECB;</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental" ref="about_me/about_me/2">
+<p><img src="./file/about_me/gu3.png" width="130" height="51" alt="gumi"/></p>
+
+<ul>
+<li>&#x65B0;&#x7530; &#x6D0B;&#x5E73;</li>
+<li>2012&#x5E74;3&#x6708; &#x798F;&#x5CA1;&#x30AA;&#x30D5;&#x30A3;&#x30B9;&#x5165;&#x793E;</li>
+<li>&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30A8;&#x30F3;&#x30B8;&#x30CB;&#x30A2;</li>
+<li>&#x798F;&#x5CA1;&#x306B;&#x6765;&#x3066;&#x6628;&#x65E5;&#x3067;&#x307E;&#x3060;&#x4E8C;&#x30F6;&#x6708;</li>
+<li>&#x4EF2;&#x826F;&#x304F;&#x3057;&#x3066;&#x306D;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental" ref="about_me/about_me/3">
+<h1>&#x30BD;&#x30FC;&#x30B7;&#x30E3;&#x30EB;&#x30E1;&#x30C7;&#x30A3;&#x30A2;&#x3068;&#x304B;</h1>
+
+<ul>
+<li><a href="http://blog.youhei.jp/">blog</a></li>
+<li><a href="http://twitter.com/youhei">@youhei</a></li>
+<li><a href="http://www.facebook.com/youhei">fb.com/youhei</a></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental small" ref="about_me/about_me/4">
+<h1>Git &#x4F7F;&#x7528;&#x6B74;</h1>
+
+<ul>
+<li>&#x524D;&#x8077;&#x307E;&#x3067;&#x306F; Subversion &#x4E2D;&#x5FC3;</li>
+<li>&#x524D;&#x8077;&#x306E;2&#x3064;&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x5B9F;&#x9A13;&#x7684;&#x306B;&#x5C0E;&#x5165;</li>
+<li>&#x521D;&#x5FC3;&#x8005;2&#x540D;&#x3067;&#x305D;&#x308C;&#x307B;&#x3069;&#x30CE;&#x30A6;&#x30CF;&#x30A6;&#x3082;&#x6E9C;&#x307E;&#x3089;&#x305A;</li>
+<li>&#x3061;&#x3083;&#x3093;&#x3068;&#x4F7F;&#x3044;&#x51FA;&#x3057;&#x305F;&#x306E;&#x306F; gumi &#x306B;&#x5165;&#x3063;&#x3066;&#x304B;&#x3089;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/1">
+<h1>&#x307F;&#x306A;&#x3055;&#x3093; Git &#x4F7F;&#x3063;&#x3066;&#x307E;&#x3059;&#x304B;?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/2">
+<h1>Git &#x3063;&#x3066;&#x306A;&#x3093;&#x304B;&#x308F;&#x304B;&#x308A;&#x306B;&#x304F;&#x304F;&#x306A;&#x3044;&#x3067;&#x3059;&#x304B;&#xFF1F;</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/3">
+<h1>&#x81EA;&#x5206;&#x306F;&#x308F;&#x304B;&#x308A;&#x306B;&#x304F;&#x3044;&#x306A;&#x3042;&#x3068;&#x611F;&#x3058;&#x3066;&#x3044;&#x307E;&#x3057;&#x305F;</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/4">
+<h1>&#x306F;&#x3066;&#x30D6;, Twitter &#x306B;&#x6EA2;&#x308C;&#x308B;<br/>&#x521D;&#x5FC3;&#x8005;&#x5411;&#x3051; Tips</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/5">
+<h1>&#x5404;&#x5730;&#x3067;&#x958B;&#x50AC;&#x3055;&#x308C;&#x308B;<br/>Git &#x52C9;&#x5F37;&#x4F1A;</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/6">
+<h1>Git &#x306E;&#x308F;&#x304B;&#x308A;&#x306B;&#x304F;&#x3055;&#x3092;&#x89E3;&#x6D88;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x69D8;&#x3005;&#x306A;&#x30C4;&#x30FC;&#x30EB;</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/7">
+<h1>GUI</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/8">
+<p><img src="./file/abstract/sourcetree.png" width="320" height="86" alt="sourcetree"/></p>
+
+<p><a href="http://www.sourcetreeapp.com/">sourcetreeapp.com</a></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/9">
+<p><img src="./file/abstract/tower.png" width="256" height="256" alt="Tower"/></p>
+
+<p><a href="http://www.git-tower.com">git-tower.com</a></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/10">
+<h1>CLI</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline small" ref="abstract/abstract/11">
+<h2><a href="https://github.com/nvie/gitflow">git-flow</a></h2>
+
+<pre><code><code class="command">$ git flow init</code>
+<code class="command">$ git flow feature start branch_name</code>
+<code class="command">$ git flow feature end branch_name</code>
+<code class="command">$ git flow hotfix</code>
+<code class="command">$ git flow release</code>
+</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline small" ref="abstract/abstract/12">
+<h2><a href="http://www.git-legit.org/">legit</a> - Git Workflow for Humans</h2>
+
+<pre><code><code class="command">$ git switch &lt;branch&gt;</code>
+<code class="command">$ git sync</code>
+<code class="command">$ git publish</code>
+<code class="command">$ git unpublish</code>
+<code class="command">$ git harvest</code>
+<code class="command">$ git sprout</code>
+<code class="command">$ git graft</code>
+<code class="command">$ git branches</code>
+</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/13">
+<h1>&#x4FBF;&#x5229;&#x30C4;&#x30FC;&#x30EB;&#x306F;&#x8AF8;&#x5203;&#x306E;&#x5263;</h1>
+
+<p>&#x3053;&#x308C;&#x3089;&#x9AD8;&#x6A5F;&#x80FD;&#x306A;&#x30C4;&#x30FC;&#x30EB;&#x306F; Git &#x3092;&#x4F7F;&#x3044;&#x3084;&#x3059;&#x304F;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x304C;&#x3001;&#x300C;&#x672C;&#x8CEA;&#x7684;&#x306A;&#x7406;&#x89E3;&#x300D;&#x3092;&#x305B;&#x305A;&#x3068;&#x3082;&#x4F7F;&#x3048;&#x3066;&#x3057;&#x307E;&#x3046;&#x8AF8;&#x5203;&#x306E;&#x5263;&#x3067;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental small" ref="abstract/abstract/14">
+<h1>&#x300C;&#x672C;&#x8CEA;&#x7684;&#x306A;&#x7406;&#x89E3;&#x300D;&#x306B;&#x8FD1;&#x4ED8;&#x304F;&#x306B;&#x306F;</h1>
+
+<ul>
+<li>&#x9AD8;&#x30EC;&#x30D9;&#x30EB;&#x306E;&#x62BD;&#x8C61;&#x5316;&#x3055;&#x308C;&#x305F;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3084;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F7F;&#x3044;&#x3053;&#x306A;&#x305B;&#x3066;&#x3082; Git &#x304C;&#x308F;&#x304B;&#x3063;&#x305F;&#x611F;&#x3058;&#x304C;&#x3057;&#x306A;&#x3044;</li>
+<li>&#x5BFE;&#x75C7;&#x7642;&#x6CD5;&#x7684;&#x306A;&#x89E3;&#x6C7A;&#x306B;&#x306A;&#x308A;&#x304C;&#x3061;</li>
+<li>&#x30B0;&#x30B0;&#x3063;&#x3066;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x6253;&#x3063;&#x3066;&#x307F;&#x308B;&#x3001;&#x3068;&#x304B;</li>
+<li>&#x305D;&#x308C;&#x306F; Git &#x306E;&#x5185;&#x90E8;&#x3092;&#x7406;&#x89E3;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x304B;&#x3089;</li>
+<li>&#x3057;&#x304B;&#x3057;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3084;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306F;&#x5168;&#x3066;&#x7406;&#x89E3;&#x3059;&#x308B;&#x306B;&#x306F;&#x6570;&#x304C;&#x3068;&#x3066;&#x3082;&#x591A;&#x3044;</li>
+<li>&#x30C7;&#x30FC;&#x30BF;&#x306B;&#x7126;&#x70B9;&#x3092;&#x5F53;&#x3066;&#x308B;&#x3068;&#x899A;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x5C11;&#x306A;&#x305D;&#x3046;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="abstract/abstract/15">
+<h1>&#x3068;&#x3001;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x30C7;&#x30FC;&#x30BF;&#x69CB;&#x9020;&#x306E;&#x89B3;&#x70B9;&#x304B;&#x3089; Git &#x3092;&#x8ABF;&#x3079;&#x3066;&#x307F;&#x307E;&#x3057;&#x305F;</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet small" ref="abstract/abstract/16">
+<h1>Git &#x3092;&#x5B9F;&#x8DF5;&#x7684;&#x306B;&#x4F7F;&#x3046;&#x4E0A;&#x3067;&#x6B20;&#x304B;&#x305B;&#x306A;&#x3044;&#x9AD8;&#x30EC;&#x30D9;&#x30EB;&#x306A;&#x6A5F;&#x80FD;</h1>
+
+<ul>
+<li>&#x5206;&#x6563;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;</li>
+<li>add --patch</li>
+<li>merge, pull --rebase</li>
+<li>stash, reflog</li>
+<li>rebase -i &#x306B;&#x3088;&#x308B;&#x6B74;&#x53F2;&#x306E;&#x6539;&#x5909;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet small" ref="abstract/abstract/17">
+<h1>&#x3053;&#x308C;&#x3089;&#x306F;&#x3053;&#x306E;&#x30B9;&#x30E9;&#x30A4;&#x30C9;&#x306E;&#x30B9;&#x30B3;&#x30FC;&#x30D7;&#x5916;&#x3067;&#x3059;</h1>
+
+<ul>
+<li>&#x4E00;&#x65E6;&#x304A;&#x5FD8;&#x308C;&#x304F;&#x3060;&#x3055;&#x3044;</li>
+<li>(&#x5B9F;&#x8DF5; Git &#x3068;&#x8A00;&#x3063;&#x3066;&#x304A;&#x304D;&#x306A;&#x304C;&#x3089;...)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="repository/repository/1">
+<h1>&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;</h1>
+
+<h2>.git</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="repository/repository/2">
+<h2>git &#x306E;&#x57FA;&#x672C;&#x69CB;&#x6210;&#x8981;&#x7D20;</h2>
+
+<h3>.git &#x306F; working tree &#x4EE5;&#x5916;&#x306E;&#x60C5;&#x5831;&#x5168;&#x3066;&#x3092;&#x3082;&#x3064;</h3>
+
+<p><img src="./file/repository/workflow.png" width="581" height="309" alt="&#x30EF;&#x30FC;&#x30AF;&#x30D5;&#x30ED;&#x30FC;"/></p>
+
+<p><a href="http://keijinsonyaban.blogspot.jp/2011/05/git.html">Git &#x3092;&#x30DC;&#x30C8;&#x30E0;&#x30A2;&#x30C3;&#x30D7;&#x304B;&#x3089;&#x7406;&#x89E3;&#x3059;&#x308B;</a>&#x3088;&#x308A;&#x5F15;&#x7528;</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental small" ref="repository/repository/3">
+<h1>&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x306E;&#x4F5C;&#x6210;</h1>
+
+<pre><code><code class="command">$ mkdir sandbox &amp;&amp; cd sandbox</code>
+<code class="command">$ git init</code>
+<code class="command">$ tree .git</code>
+<code class="result">.git
+&#x251C;&#x2500;&#x2500; HEAD # &#x73FE;&#x5728;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x30A2;&#x30A6;&#x30C8;&#x3057;&#x3066;&#x308B;&#x30D6;&#x30E9;&#x30F3;&#x30C1;
+&#x251C;&#x2500;&#x2500; config
+&#x251C;&#x2500;&#x2500; description
+&#x251C;&#x2500;&#x2500; hooks
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x5404;&#x7A2E; hook &#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;
+&#x251C;&#x2500;&#x2500; info
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; exclude
+&#x251C;&#x2500;&#x2500; objects # &#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; info
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; pack
+&#x2514;&#x2500;&#x2500; refs # &#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;(&#x30D6;&#x30E9;&#x30F3;&#x30C1;, &#x30BF;&#x30B0;&#x306A;&#x3069;)
+    &#x2514;&#x2500;&#x2500; heads
+        &#x2514;&#x2500;&#x2500; tags
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="objects/objects/1">
+<h1>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;</h1>
+
+<h2>.git/objects</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental" ref="objects/objects/2">
+<h2>.git/objects &#x306E;&#x7279;&#x5FB4;</h2>
+
+<ul>
+<li>&#x5909;&#x66F4;(&#x30C7;&#x30EB;&#x30BF;)&#x3067;&#x306F;&#x306A;&#x304F;&#x30B9;&#x30CA;&#x30C3;&#x30D7;&#x30B7;&#x30E7;&#x30C3;&#x30C8;</li>
+<li>&#x5404;&#x3005;&#x306E;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x306B;&#x5BFE;&#x3059;&#x308B;&#x30C4;&#x30EA;&#x30FC;&#x69CB;&#x9020;&#x3068;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x307E;&#x308B;&#x3054;&#x3068;&#x4FDD;&#x7BA1;&#x3059;&#x308B;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental" ref="objects/objects/3">
+<h2>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x7A2E;&#x985E;</h2>
+
+<p>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;(.git/objects)&#x306B;&#x683C;&#x7D0D;&#x3055;&#x308C;&#x308B;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</p>
+
+<ul>
+<li>blob</li>
+<li>tree</li>
+<li>commit</li>
+<li>tag (&#x4ECA;&#x56DE;&#x7701;&#x7565;&#x3057;&#x307E;&#x3059;)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="objects/objects/4">
+<h1>blob object</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="objects/objects/5">
+<h1>&#x30C7;&#x30FC;&#x30BF;&#x305D;&#x306E;&#x3082;&#x306E;&#x3092;&#x6307;&#x3059;<br/>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="objects/objects/6">
+<h2>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8; ID &#x306F; SHA-1 &#x30CF;&#x30C3;&#x30B7;&#x30E5;</h2>
+
+<pre><code><code class="command">$ echo 'Hello, World!' &gt; greeting</code>
+<code class="result">
+</code><code class="command">$ git hash-object greeting</code>
+<code class="result">8ab686eafeb1f44702738c8b0f24f2567c36da6d
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="objects/objects/7">
+<h2>blob &#x306F;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x306B;&#x95A2;&#x4FC2;&#x306A;&#x304F;<br/>&#x4E2D;&#x8EAB;&#x304C;&#x540C;&#x3058;&#x306A;&#x3089;&#x3070;&#x540C;&#x3058; ID</h2>
+
+<pre><code><code class="command">$ echo 'Hello, World!' &gt; greeting2</code>
+<code class="result">
+</code><code class="command">$ git hash-object greeting greeting2</code>
+<code class="result">8ab686eafeb1f44702738c8b0f24f2567c36da6d
+8ab686eafeb1f44702738c8b0f24f2567c36da6d
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="objects/objects/8">
+<h2>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x306B;<br/>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3067;&#x7BA1;&#x7406;&#x3055;&#x308C;&#x308B;</h2>
+
+<p>&#x5148;&#x982D;2&#x6841;&#x306E;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x540D;/&#x6B8B;&#x308A;38&#x6841;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;</p>
+
+<pre><code><code class="command">$ git add greeting</code>
+<code class="result">
+</code><code class="command">$ tree .git</code>
+<code class="result">.git # (&#x8272;&#x3005;&#x7701;&#x7565;)
+&#x251C;&#x2500;&#x2500; index # &#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;
+&#x2514;&#x2500;&#x2500; objects
+    &#x2514;&#x2500; 8a
+      &#x2514;&#x2500;&#x2500; b686eafeb1f44702738c8b0f24f2567c36da6d
+
+</code><code class="command">$ git cat-file -t 8ab6</code>
+<code class="result">blob
+
+</code><code class="command">$ git cat-file blob 8ab6</code>
+<code class="result">Hello, World!
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental small" ref="objects/objects/9">
+<h2>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x6A29;&#x9650;&#x3067;&#x4F5C;&#x6210;&#x3055;&#x308C;&#x308B;</h2>
+
+<p>&#x4E00;&#x5EA6;&#x4F5C;&#x6210;&#x3055;&#x308C;&#x305F;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x4E0A;&#x66F8;&#x304D;&#x3055;&#x308C;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x793A;&#x5506;&#x3057;&#x3066;&#x3044;&#x308B;</p>
+
+<pre><code><code class="command">$ stat -c %A .git/objects/8a/b686eafeb1f44702738c8b0f24f2567c36da6d</code>
+<code class="result">-r--r--r--
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental small" ref="objects/objects/10">
+<h2>&#x540C;&#x3058;&#x5185;&#x5BB9;&#x306E; blob &#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x3082;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x7F6E;&#x63DB;&#x3055;&#x308C;&#x306A;&#x3044;</h2>
+
+<p>&#x66F4;&#x65B0;&#x6642;&#x523B;&#x306F;&#x5909;&#x308F;&#x3089;&#x306A;&#x3044;&#x306E;&#x3067;&#x7F6E;&#x63DB;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;</p>
+
+<pre><code><code class="command">$ stat -c %y .git/objects/8a/b686eafeb1f44702738c8b0f24f2567c36da6d</code>
+<code class="result">2012-04-23 09:43:12.000000000 +0900
+
+</code><code class="command">$ git add greeting2</code>
+<code class="result">
+</code><code class="command">$ stat -c %y .git/objects/8a/b686eafeb1f44702738c8b0f24f2567c36da6d</code>
+<code class="result">2012-04-23 09:43:12.000000000 +0900
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="objects/objects/11">
+<h2>&#x524A;&#x9664;&#x3057;&#x3066;&#x3082;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x304B;&#x3089;<br/>&#x6D88;&#x3048;&#x306A;&#x3044;</h2>
+
+<pre><code><code class="command">$ git rm --cached greeting greeting2</code>
+<code class="result">rm 'greeting'
+rm 'greeting2'
+
+</code><code class="command">$ git cat-file blob 8ab6</code>
+<code class="result">Hello, World!
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental small" ref="objects/objects/12">
+<h2>blob object &#x306B;&#x3064;&#x3044;&#x3066;&#x308F;&#x304B;&#x3063;&#x305F;&#x3053;&#x3068;</h2>
+
+<ul>
+<li>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F; SHA-1 &#x30CF;&#x30C3;&#x30B7;&#x30E5; ID &#x3067;&#x4E00;&#x610F;&#x306B;&#x306A;&#x308B;</li>
+<li>blob &#x306F;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x4E2D;&#x8EAB;&#x306E;&#x307F;&#x3067;&#x4E00;&#x610F;&#x306B;&#x306A;&#x308B;</li>
+<li>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x306F;&#x8FFD;&#x8A18;&#x306E;&#x307F;&#x3067;&#x66F4;&#x65B0;&#x3057;&#x306A;&#x3044;</li>
+<li>&#x524A;&#x9664;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x3082;&#x5B9F;&#x4F53;&#x306F;&#x6B8B;&#x308B;</li>
+<li>&#x3044;&#x308F;&#x3086;&#x308B;&#x30A4;&#x30DF;&#x30E5;&#x30FC;&#x30BF;&#x30D6;&#x30EB;(&#x4E0D;&#x5909;)&#x306A;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="objects/objects/13">
+<h1>tree object</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="objects/objects/14">
+<h1>blob &#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x69CB;&#x9020;&#x3092;<br/>&#x4E0E;&#x3048;&#x308B;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental small" ref="objects/objects/15">
+<h2>tree &#x306F;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x6642;&#x306B;&#x4F5C;&#x3089;&#x308C;&#x308B;</h2>
+
+<pre><code><code class="command">$ git add greeting</code>
+<code class="result">
+</code><code class="command">$ git commit -m 'added my greeting.'</code>
+<code class="result">[master (root-commit) 77d0330] added my greeting.
+ 1 file changed,  1 insertion(+)
+   create mode 100644 greeting
+
+</code><code class="command">$ git cat-file commit HEAD # &#x6700;&#x65B0;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x306E;&#x4E2D;&#x8EAB;&#x3092;&#x307F;&#x308B;</code>
+<code class="result">tree 2da064c4206cb1e94a20a99c2cd2e19f3d193b74
+author Youhei Nitta &lt;me@youhei.jp&gt; 1335212302 +0900
+committer Youhei Nitta &lt;me@youhei.jp&gt; 1335212302 +0900
+
+added my greeting.
+
+</code><code class="command">$ git cat-file -t 2da0</code>
+<code class="result">tree
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental small" ref="objects/objects/16">
+<h2>tree &#x306F; blob &#x3084; tree &#x3092;&#x4FDD;&#x6301;&#x3057;&#x3066;&#x3044;&#x308B;</h2>
+
+<pre><code><code class="command">$ git ls-tree 2da0</code>
+<code class="result">100644 blob 8ab686eafeb1f44702738c8b0f24f2567c36da6d    greeting
+
+</code><code class="command">$ mkdir subdir &amp;&amp; mv greeting2</code>
+<code class="result">
+</code><code class="command">$ git add subdir</code>
+<code class="result">
+</code><code class="command">$ git commit -m 'added sub directory.'</code>
+<code class="result">
+</code><code class="command">$ git ls-tree HEAD</code>
+<code class="result">040000 tree 18e6d2abde0f316ff62e0c8093ca8f569910bf7d    subdir
+100644 blob 8ab686eafeb1f44702738c8b0f24f2567c36da6d    greeting
+
+</code><code class="command">$ git ls-tree 18e6</code>
+<code class="result">100644 blob 8ab686eafeb1f44702738c8b0f24f2567c36da6d    greeting2
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental small" ref="objects/objects/17">
+<h2>tree object &#x306B;&#x3064;&#x3044;&#x3066;&#x308F;&#x304B;&#x3063;&#x305F;&#x3053;&#x3068;</h2>
+
+<ul>
+<li>&#x69CB;&#x9020;&#x3084;&#x540D;&#x524D;&#x3092;&#x3082;&#x305F;&#x306A;&#x3044; blob &#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3068;&#x3057;&#x3066;&#x306E;&#x69CB;&#x9020;&#x3092;&#x4E0E;&#x3048;&#x308B;</li>
+<li>blob &#x3084; tree &#x3092;&#x4FDD;&#x7BA1;&#x3057;&#x3066;&#x3044;&#x308B;</li>
+<li>tree &#x306F;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x306B;&#x4FDD;&#x6301;&#x3055;&#x308C;&#x308B;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="objects/objects/18">
+<h1>commit object</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="objects/objects/19">
+<h2>&#x3042;&#x308B;&#x6642;&#x70B9;&#x3067;&#x306E;&#x30B9;&#x30CA;&#x30C3;&#x30D7;&#x30B7;&#x30E7;&#x30C3;&#x30C8;&#x3092;<br/>&#x793A;&#x3059;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental small" ref="objects/objects/20">
+<h2>tree &#x306E;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8; ID &#x3092;&#x6301;&#x3064;</h2>
+
+<pre><code><code class="command">$ git cat-file commit HEAD</code>
+<code class="result">tree 680e36390174676a7343ec570f9f22d0632f4444
+parent 77d03308354257e850041fd2d10448fc3a2c4c8b
+author Youhei Nitta &lt;me@youhei.jp&gt; 1335213434 +0900
+committer Youhei Nitta &lt;me@youhei.jp&gt; 1335213434 +0900
+
+added sub directory.
+
+</code><code class="command">$ git ls-tree commit 680e</code>
+<code class="result">040000 tree 18e6d2abde0f316ff62e0c8093ca8f569910bf7d    subdir
+100644 blob 8ab686eafeb1f44702738c8b0f24f2567c36da6d    greeting
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental smaller" ref="objects/objects/21">
+<h2>&#x89AA;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x306E;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8; ID &#x3092;&#x6301;&#x3064;(&#x6700;&#x521D;&#x306E;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x3092;&#x9664;&#x304F;)</h2>
+
+<pre><code><code class="command">$ git cat-file commit HEAD</code>
+<code class="result">tree 680e36390174676a7343ec570f9f22d0632f4444
+parent 77d03308354257e850041fd2d10448fc3a2c4c8b
+author Youhei Nitta &lt;me@youhei.jp&gt; 1335213434 +0900
+committer Youhei Nitta &lt;me@youhei.jp&gt; 1335213434 +0900
+
+added sub directory.
+
+</code><code class="command">$ git cat-file commit 77d0</code>
+<code class="result">git cat-file commit 77d0
+tree 2da064c4206cb1e94a20a99c2cd2e19f3d193b74
+author Youhei Nitta &lt;me@youhei.jp&gt; 1335212302 +0900
+committer Youhei Nitta &lt;me@youhei.jp&gt; 1335212302 +0900
+
+added my greeting.
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental small" ref="objects/objects/22">
+<h2>&#x30DE;&#x30FC;&#x30B8;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x306F;&#x4E8C;&#x3064;&#x306E;&#x89AA;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x3092;&#x6301;&#x3064;</h2>
+
+<p>(&#x5C11;&#x3057;&#x9AD8;&#x30EC;&#x30D9;&#x30EB;&#x306B;&#x623B;&#x308A;&#x307E;&#x3059;)</p>
+
+<pre><code><code class="command">$ git branch fukuoka</code>
+<code class="command">$ git checkout fukuoka</code>
+<code class="command">$ echo 'Hello, Fukuoka!' &gt; greeting2</code>
+<code class="command">$ git add greeting2</code>
+<code class="command">$ git commit -m 'added another greeting.'</code>
+<code class="command">$ git checkout master</code>
+<code class="command">$ git merge fukuoka -m 'merged fukuoka branch.'</code>
+<code class="result">
+</code><code class="command">$ git cat-file commit HEAD</code>
+<code class="result">tree 2fb79db8e8b4ab0f704a056754b434ff2a5435b9
+parent ae3bc73b86e8ea701496122f4ea7ec5e29cab979
+parent 5d8fc0a8aef3930dac4347bdfda950cec83bde8c
+author Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+committer Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+
+merged fukuoka branch.
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental small" ref="objects/objects/23">
+<h2>commit object &#x306B;&#x3064;&#x3044;&#x3066;&#x308F;&#x304B;&#x3063;&#x305F;&#x3053;&#x3068;</h2>
+
+<ul>
+<li>&#x5FC5;&#x305A; tree &#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;</li>
+<li>&#x3064;&#x307E;&#x308A;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x6642;&#x70B9;&#x3067;&#x306E;&#x30C4;&#x30EA;&#x30FC;&#x306E;<br/>&#x5B8C;&#x5168;&#x306A;&#x72B6;&#x614B;(&#x30B9;&#x30CA;&#x30C3;&#x30D7;&#x30B7;&#x30E7;&#x30C3;&#x30C8;)&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;</li>
+<li>parent &#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;</li>
+<li>&#x30DE;&#x30FC;&#x30B8;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x306F; parent &#x3092;&#x4E8C;&#x3064;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;</li>
+<li>&#x3064;&#x307E;&#x308A; parent &#x3092;&#x8FBF;&#x308C;&#x3070;&#x300C;&#x5C65;&#x6B74;&#x300D;&#x3092;&#x69CB;&#x6210;&#x3067;&#x304D;&#x308B;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="objects/objects/24">
+<h1>Git &#x306E;&#x5B9F;&#x4F53;(&#x30A8;&#x30F3;&#x30C6;&#x30A3;&#x30C6;&#x30A3;)&#x306F;&#x57FA;&#x672C;&#x7684;&#x306B;&#x306F;&#x3053;&#x308C;&#x3060;&#x3051;&#x3067;&#x3059;</h1>
+
+<h2>&#x3068;&#x3066;&#x3082;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x3067;&#x3059;</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet" ref="objects/objects/25">
+<h2>&#x6B8B;&#x308A;&#x306E;&#x767B;&#x5834;&#x4EBA;&#x7269;&#x306F;&#x3075;&#x305F;&#x3064;</h2>
+
+<ul>
+<li>&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;</li>
+<li>&#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="index/index/1">
+<h1>&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;</h1>
+
+<h2>.git/index</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental" ref="index/index/2">
+<h2>.git/index</h2>
+
+<ul>
+<li>&#x6B21;&#x306E;&#x30B3;&#x30DF;&#x30C3;&#x30C8;&#x306E;&#x6E96;&#x5099;&#x3092;&#x3059;&#x308B;&#x5834;&#x6240;</li>
+<li>&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x30D1;&#x30B9;&#x3001;&#x30D1;&#x30FC;&#x30DF;&#x30C3;&#x30B7;&#x30E7;&#x30F3;&#x3001;blob &#x5024;&#x3092;&#x3082;&#x3064;</li>
+<li>&#x6B21;&#x306E; HEAD &#x306B;&#x306A;&#x308B; commit &#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30A8;&#x30EA;&#x30A2;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="index/index/3">
+<h1>.git/index &#x306F; tree &#x306E;&#x92F3;&#x578B;</h1>
+
+<p><img src="./file/index/making_tree.png" width="466" height="380" alt="index &#x3092;&#x5143;&#x306B; tree &#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;"/></p>
+
+<p><a href="http://keijinsonyaban.blogspot.jp/2011/05/git.html">Git &#x3092;&#x30DC;&#x30C8;&#x30E0;&#x30A2;&#x30C3;&#x30D7;&#x304B;&#x3089;&#x7406;&#x89E3;&#x3059;&#x308B;</a>&#x3088;&#x308A;&#x5F15;&#x7528;</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="refs/refs/1">
+<h1>&#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;</h1>
+
+<h2>.git/refs</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental small" ref="refs/refs/2">
+<ul>
+<li>&#x899A;&#x3048;&#x306B;&#x304F;&#x3044;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8; ID &#x306E;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x4F7F;&#x3046;&#x5225;&#x540D;</li>
+<li>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x30D6;&#x30E9;&#x30F3;&#x30C1;, &#x30EA;&#x30E2;&#x30FC;&#x30C8;&#x30D6;&#x30E9;&#x30F3;&#x30C1;, &#x30BF;&#x30B0;, HEAD &#x306F;&#x5168;&#x3066;&#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental" ref="refs/refs/3">
+<h2>&#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;&#x306E;&#x7A2E;&#x985E;</h2>
+
+<ul>
+<li>references</li>
+<li>symbolic references</li>
+<li>remote references (&#x4ECA;&#x56DE;&#x7701;&#x7565;&#x3057;&#x307E;&#x3059;)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental smaller" ref="refs/refs/4">
+<h2>branch &#x306F; references</h2>
+
+<pre><code><code class="command">$ cat .git/refs/heads/master</code>
+<code class="result">41219f49d28b936482be893a6ca3b5a77443c78a
+
+</code><code class="command">$ git cat-file commit master</code>
+<code class="result">tree 2fb79db8e8b4ab0f704a056754b434ff2a5435b9
+parent ae3bc73b86e8ea701496122f4ea7ec5e29cab979
+parent 5d8fc0a8aef3930dac4347bdfda950cec83bde8c
+author Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+committer Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+
+Merge branch 'fukuoka'
+
+</code><code class="command">$ git cat-file commit 41219f49d28b936482be893a6ca3b5a77443c78a</code>
+<code class="result">tree 2fb79db8e8b4ab0f704a056754b434ff2a5435b9
+parent ae3bc73b86e8ea701496122f4ea7ec5e29cab979
+parent 5d8fc0a8aef3930dac4347bdfda950cec83bde8c
+author Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+committer Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+
+Merge branch 'fukuoka'
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental smaller" ref="refs/refs/5">
+<h2>HEAD &#x306F; symbolic references</h2>
+
+<p>&#x4ED6;&#x306E; references &#x3078;&#x306E;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x3067;&#x8868;&#x73FE;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;</p>
+
+<pre><code><code class="command">$ cat .git/refs/HEAD</code>
+<code class="result">ref: refs/heads/master
+
+</code><code class="command">$ git symbolic-ref HEAD</code>
+<code class="result">refs/heads/master
+
+</code><code class="command">$ git cat-file commit HEAD</code>
+<code class="result">tree 2fb79db8e8b4ab0f704a056754b434ff2a5435b9
+parent ae3bc73b86e8ea701496122f4ea7ec5e29cab979
+parent 5d8fc0a8aef3930dac4347bdfda950cec83bde8c
+author Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+committer Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+
+Merge branch 'fukuoka'
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental smaller" ref="refs/refs/6">
+<h2>tag &#x3082; references</h2>
+
+<pre><code><code class="command">$ git tag v0.0.1</code>
+<code class="result">
+</code><code class="command">$ cat .git/refs/tags/v0.0.1</code>
+<code class="result">41219f49d28b936482be893a6ca3b5a77443c78a
+
+</code><code class="command">$ git cat-file commit v0.0.1</code>
+<code class="result">tree 2fb79db8e8b4ab0f704a056754b434ff2a5435b9
+parent ae3bc73b86e8ea701496122f4ea7ec5e29cab979
+parent 5d8fc0a8aef3930dac4347bdfda950cec83bde8c
+author Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+committer Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+
+Merge branch 'fukuoka'
+
+</code><code class="command">$ git cat-file commit 41219f49d28b936482be893a6ca3b5a77443c78a</code>
+<code class="result">tree 2fb79db8e8b4ab0f704a056754b434ff2a5435b9
+parent ae3bc73b86e8ea701496122f4ea7ec5e29cab979
+parent 5d8fc0a8aef3930dac4347bdfda950cec83bde8c
+author Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+committer Youhei Nitta &lt;me@youhei.jp&gt; 1335215713 +0900
+
+Merge branch 'fukuoka'
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental" ref="refs/refs/7">
+<h2>tag &#x3068; branch &#x306E;&#x9055;&#x3044;</h2>
+
+<ul>
+<li>&#x5B9F;&#x306F;&#x307B;&#x3068;&#x3093;&#x3069;&#x540C;&#x3058;</li>
+<li>branch &#x306F; commit &#x306B;&#x5408;&#x308F;&#x305B;&#x3066;&#x5909;&#x52D5;&#x3059;&#x308B;</li>
+<li>&#x9006;&#x306B; tag &#x306F;&#x5909;&#x52D5;&#x3057;&#x306A;&#x3044; branch &#x3068;&#x3044;&#x3048;&#x308B;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet small" ref="conclusion/conclusion/1">
+<h2>&#x4EE5;&#x4E0A;&#x304C;&#x3001;Git &#x3092;&#x69CB;&#x6210;&#x3059;&#x308B;&#x8981;&#x7D20;&#x306E;(&#x307B;&#x307C;)&#x5168;&#x3066;&#x3067;&#x3059;</h2>
+
+<ul>
+<li>&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;</li>
+<li>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;</li>
+<li>&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;</li>
+<li>&#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet incremental smaller" ref="conclusion/conclusion/2">
+<h2>&#x3053;&#x3053;&#x307E;&#x3067;&#x306E;&#x4F4E;&#x30EC;&#x30D9;&#x30EB;&#x306A;&#x89B3;&#x70B9;&#x3060;&#x3051;&#x3067;&#x3001;<br/>&#x4E0B;&#x8A18;&#x306E;&#x9AD8;&#x30EC;&#x30D9;&#x30EB;&#x306A;&#x8996;&#x70B9;&#x306B;<br/>&#x81EA;&#x5206;&#x306A;&#x308A;&#x306E;&#x56DE;&#x7B54;&#x304C;&#x3067;&#x304D;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;</h2>
+
+<ul>
+<li>&#x3044;&#x304F;&#x3089;&#x5206;&#x6563;&#x3057;&#x3066;&#x3082;&#x77DB;&#x76FE;&#x304C;&#x767A;&#x751F;&#x3057;&#x306A;&#x3044;&#x7406;&#x7531;</li>
+<li>&#x30D6;&#x30E9;&#x30F3;&#x30C1;&#x306E;&#x5207;&#x308A;&#x66FF;&#x3048;&#x304C;&#x9AD8;&#x901F;&#x306A;&#x7406;&#x7531;</li>
+<li>reflog &#x3067;&#x904E;&#x53BB;&#x306E;&#x3069;&#x306E;&#x6642;&#x70B9;&#x306B;&#x3082;&#x623B;&#x308C;&#x308B;&#x7406;&#x7531;</li>
+<li>&#x5DEE;&#x5206;&#x306F;&#x3069;&#x3053;&#x304B;&#x3089;&#x53D6;&#x308A;&#x51FA;&#x3057;&#x3044;&#x3064;&#x8A08;&#x7B97;&#x3059;&#x308B;&#x304B;&#x63A8;&#x6E2C;</li>
+<li>SHA-1 &#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x5024;&#x304C;&#x885D;&#x7A81;&#x6642;&#x306B; Git &#x306F;&#x3069;&#x3046;&#x632F;&#x308B;&#x821E;&#x3046;&#x304B;&#x63A8;&#x6E2C;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="conclusion/conclusion/3">
+<h1>&#x304A;&#x307E;&#x3051;</h1>
+
+<h2>SHA-1 &#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x5024;&#x306E;&#x885D;&#x7A81;&#x306B;&#x3064;&#x3044;&#x3066;&#x5C0F;&#x567A;</h2>
+
+<blockquote>
+SHA-1 &#x306E;&#x885D;&#x7A81;&#x3092;&#x898B;&#x308B;&#x306B;&#x306F;&#x3069;&#x3046;&#x3057;&#x305F;&#x3089;&#x3044;&#x3044;&#x306E;&#x304B;&#x3001;&#x3072;&#x3068;&#x3064;&#x306E;&#x4F8B;&#x3092;&#x3054;&#x3089;&#x3093;&#x306B;&#x5165;&#x308C;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<br/>
+&#x5730;&#x7403;&#x4E0A;&#x306E;&#x4EBA;&#x985E; 65 &#x5104;&#x4EBA;&#x304C;&#x5168;&#x54E1;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3044;&#x305F;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x305D;&#x306E;&#x5168;&#x54E1;&#x304C;&#x3001;Linux &#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306E;&#x3053;&#x308C;&#x307E;&#x3067;&#x306E;&#x958B;&#x767A;&#x5C65;&#x6B74; (100 &#x4E07;&#x306E; Git &#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;) &#x3068;&#x540C;&#x7B49;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x4E00;&#x79D2;&#x3067;&#x66F8;&#x304D;&#x4E0A;&#x3052;&#x3001;&#x99AC;&#x9E7F;&#x3067;&#x304B;&#x3044;&#x5358;&#x4E00;&#x306E; Git &#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x306B;&#x30D7;&#x30C3;&#x30B7;&#x30E5;&#x3057;&#x3066;&#x3044;&#x304F;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x3092;&#x4E94;&#x5E74;&#x9593;&#x7D9A;&#x3051;&#x305F;&#x3068;&#x3057;&#x3066;&#x3001;SHA-1 &#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x885D;&#x7A81;&#x304C;&#x3072;&#x3068;&#x3064;&#x3067;&#x3082;&#x767A;&#x751F;&#x3059;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3084;&#x3063;&#x3068; 50% &#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<br/>
+&#x305D;&#x308C;&#x3088;&#x308A;&#x3082;&#x300C;&#x3042;&#x306A;&#x305F;&#x306E;&#x6240;&#x5C5E;&#x3059;&#x308B;&#x958B;&#x767A;&#x30C1;&#x30FC;&#x30E0;&#x306E;&#x5168;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x304C;&#x3001;&#x540C;&#x3058;&#x591C;&#x306B;&#x305D;&#x308C;&#x305E;&#x308C;&#x307E;&#x3063;&#x305F;&#x304F;&#x7121;&#x95A2;&#x4FC2;&#x306E;&#x4E8B;&#x4EF6;&#x3067;&#x5168;&#x54E1;&#x30AA;&#x30AA;&#x30AB;&#x30DF;&#x306B;&#x6BBA;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3046;&#x300D;&#x53EF;&#x80FD;&#x6027;&#x306E;&#x307B;&#x3046;&#x304C;&#x3088;&#x3063;&#x307D;&#x3069;&#x9AD8;&#x3044;&#x3053;&#x3068;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;
+</blockquote>
+
+
+<p><a href="http://progit.org/book/ja/ch6-1.html">ProGit 6.1 &#x30EA;&#x30D3;&#x30B8;&#x30E7;&#x30F3;&#x306E;&#x9078;&#x629E;</a> &#x3088;&#x308A;</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="conclusion/conclusion/4">
+<h1>&#x307E;&#x3068;&#x3081;</h1>
+
+<ul>
+<li>git &#x306E;&#x30C7;&#x30FC;&#x30BF;&#x69CB;&#x9020;&#x306F;&#x3068;&#x3066;&#x3082;&#x30B7;&#x30F3;&#x30D7;&#x30EB;</li>
+<li>&#x4F4E;&#x30EC;&#x30D9;&#x30EB;&#x306A;&#x8996;&#x70B9;&#x3092;&#x6301;&#x3064;&#x3068;&#x9AD8;&#x30EC;&#x30D9;&#x30EB;&#x306A;&#x6A5F;&#x80FD;&#x30FB;&#x554F;&#x984C;&#x306F;&#x81EA;&#x7136;&#x3068;&#x308F;&#x304B;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullet smaller" ref="conclusion/conclusion/5">
+<h1>&#x53C2;&#x8003;&#x8CC7;&#x6599;(&#x6398;&#x308A;&#x4E0B;&#x3052;&#x305F;&#x3044;&#x4EBA;&#x5411;&#x3051;)</h1>
+
+<ul>
+<li><a href="http://keijinsonyaban.blogspot.jp/2011/05/git.html">Git &#x3092;&#x30DC;&#x30C8;&#x30E0;&#x30A2;&#x30C3;&#x30D7;&#x304B;&#x3089;&#x7406;&#x89E3;&#x3059;&#x308B;</a></li>
+<li><a href="http://progit.org/book/ja/ch9-0.html">ProGit 9. Git &#x306E;&#x5185;&#x5074;</a></li>
+<li><a href="http://speakerdeck.com/u/schacon/p/wrangling-git">Wrangling Git</a></li>
+<li><a href="http://www.shuwasystem.co.jp/products/7980html/2380.html">&#x5165;&#x9580; Git</a> 2&#x7AE0; git &#x306E;&#x57FA;&#x672C;&#x6982;&#x5FF5;</li>
+<li><a href="http://ssl.ohmsha.co.jp/cgi-bin/menu.cgi?ISBN=978-4-274-06864-5">Git &#x306B;&#x3088;&#x308B;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x7BA1;&#x7406;</a> 13&#x7AE0; Git &#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x306E;&#x4E2D;&#x8EAB;&#x3092;&#x898B;&#x308B;</li>
+<li>gitcore-tutorial(7)</li>
+<li>git(1): LOW-LEVEL COMMANDS</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="conclusion/conclusion/6">
+<h2>We are hiring!!</h2>
+
+<p><img src="./file/conclusion/../about_me/gu3.png" width="130" height="51" alt="gumi"/>&#x3067;&#x306F;&#x4F4E;&#x30EC;&#x30D9;&#x30EB;&#x306A;&#x6280;&#x8853;&#x8005;&#x3092;&#x52DF;&#x96C6;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF01;</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="conclusion/conclusion/7">
+<h1>&#x8CEA;&#x7591;&#x5FDC;&#x7B54;</h1>
+</div>
+</div></div>
+
+</body>
+</html>
