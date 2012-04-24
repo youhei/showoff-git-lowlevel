@@ -3,6 +3,11 @@
   "sections": [
     {"section":"title"},
     {"section":"about_me"},
-    {"section":"abstract"}
+    {"section":"abstract"},
+    {"section":"repository"},
+    {"section":"objects"},
+    {"section":"index"},
+    {"section":"refs"},
+    {"section":"conclusion"}
   ]
 }
