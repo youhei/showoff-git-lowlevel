@@ -4,6 +4,7 @@
 ## .git/refs
 
 !SLIDE bullet incremental small
+## リファレンスとは
 * 覚えにくいオブジェクト ID の代わりに使う別名
 * ローカルブランチ, リモートブランチ, タグ, HEAD は全てリファレンス
 

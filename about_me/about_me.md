@@ -19,6 +19,7 @@
 * [blog](http://blog.youhei.jp/)
 * [@youhei](http://twitter.com/youhei)
 * [fb.com/youhei](http://www.facebook.com/youhei)
+* [github.com/youhei](http://github.com/youhei)
 
 !SLIDE bullet incremental small
 
