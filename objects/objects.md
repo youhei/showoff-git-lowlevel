@@ -177,8 +177,10 @@
 	
 	added sub directory.
 
+	$ git cat-file -t 77d0
+	commit
+
 	$ git cat-file commit 77d0
-	git cat-file commit 77d0
 	tree 2da064c4206cb1e94a20a99c2cd2e19f3d193b74
 	author Youhei Nitta <me@youhei.jp> 1335212302 +0900
 	committer Youhei Nitta <me@youhei.jp> 1335212302 +0900
