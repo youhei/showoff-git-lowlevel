@@ -35,8 +35,8 @@ SHA-1 の衝突を見るにはどうしたらいいのか、ひとつの例を�
 * [Wrangling Git](http://speakerdeck.com/u/schacon/p/wrangling-git)
 * [入門 Git](http://www.shuwasystem.co.jp/products/7980html/2380.html) 2章 git の基本概念
 * [Git によるバージョン管理](http://ssl.ohmsha.co.jp/cgi-bin/menu.cgi?ISBN=978-4-274-06864-5) 13章 Git リポジトリの中身を見る
-* gitcore-tutorial(7)
-* git(1): LOW-LEVEL COMMANDS
+* [gitcore-tutorial(7)](http://schacon.github.com/git/gitcore-tutorial.html)
+* [git(1): LOW-LEVEL COMMANDS](http://schacon.github.com/git/git.html)
 
 !SLIDE
 ## We are hiring!!
